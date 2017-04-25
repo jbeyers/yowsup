@@ -76,7 +76,6 @@ class BroadcastLayer(YowInterfaceLayer):
         mediaUploader.start()
 
     def on_upload_request_error(self, error, entity):
-        import pdb;pdb.set_trace()
         print("Error requesting upload url")
 
     def on_upload_success(self, *args, **kwargs):
@@ -92,12 +91,10 @@ class BroadcastLayer(YowInterfaceLayer):
         # Horrible hack because of static methods instead of class methods.
         message.__class__ = BroadcastMessageProtocolEntity
         message.setBroadcastProps(self.jids)
-        import pdb;pdb.set_trace()
         self.ackQueue.append(message.getId())
         self.toLower(message)
 
     def on_upload_error(self, *args, **kwargs):
-        import pdb;pdb.set_trace()
         print("Upload file failed!")
 
     def on_upload_progress(self, filePath, jid, url, progress):
