@@ -10,3 +10,4 @@ build
 .tox
 ve/
 yowsup.conf
+tags
