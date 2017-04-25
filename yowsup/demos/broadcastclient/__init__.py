@@ -1,1 +1,1 @@
-from .stack import YowsupSendStack
+from .stack import YowsupBroadcastStack

@@ -1,4 +1,4 @@
-from yowsup.stacks import  YowStackBuilder
+from yowsup.stacks import YowStackBuilder
 from .layer import BroadcastLayer
 from yowsup.layers.auth import AuthError
 from yowsup.layers import YowLayerEvent
@@ -6,8 +6,8 @@ from yowsup.layers.auth import YowAuthenticationProtocolLayer
 from yowsup.layers.network import YowNetworkLayer
 
 
-class YowsupSendStack(object):
-    def __init__(self, credentials, messages, encryptionEnabled = True):
+class YowsupBroadcastStack(object):
+    def __init__(self, credentials, message, encryptionEnabled = True):
         """
         :param credentials:
         :param messages: list of (jid, message) tuples
@@ -21,7 +21,7 @@ class YowsupSendStack(object):
             .push(BroadcastLayer)\
             .build()
 
-        self.stack.setProp(BroadcastLayer.PROP_MESSAGES, messages)
+        self.stack.setProp(BroadcastLayer.PROP_MESSAGE, message)
         self.stack.setProp(YowAuthenticationProtocolLayer.PROP_PASSIVE, True)
         self.stack.setCredentials(credentials)
 
