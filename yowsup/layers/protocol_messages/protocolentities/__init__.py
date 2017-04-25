@@ -1,3 +1,4 @@
 from .message_text import TextMessageProtocolEntity
 from .message import MessageProtocolEntity
+from .message_broadcast import BroadcastMessageProtocolEntity
 from .message_text_broadcast import BroadcastTextMessage
